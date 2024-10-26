@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\products;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,7 +13,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Product.index');
+        $Products = products::latest()->get();
+        // dd($Products);
+
+        return view('Product.index', [
+            'products' => $Products
+        ]);
     }
 
      /**
@@ -28,7 +35,13 @@ class ProductController extends Controller
 
     public function products()
     {
-        return view('Product.products');
+        $allproducts = products::all();
+
+        // dd($allproducts);
+
+        return view('Product.products', [
+            'allproducts' => $allproducts
+        ]);
     }
 
          /**
