@@ -35,7 +35,7 @@ class ProductController extends Controller
 
     public function products()
     {
-        $allproducts = products::all();
+        $allproducts = products::latest()->paginate(3);
 
         // dd($allproducts);
 

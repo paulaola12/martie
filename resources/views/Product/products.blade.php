@@ -50,14 +50,14 @@
             <div class="filters-content">
                 <div class="row grid">
                     @foreach ($allproducts as $allproduct )
-                    @if ($loop->index<9)
+                    {{-- @if ($loop->index<3) --}}
                     <div class="col-lg-4 col-md-4 all dev">
                       <div class="product-item">
                         <a href="#"><img src="assets/images/product_02.jpg" alt=""></a>
                         <div class="down-content">
-                          <a href="#"><h4>Tittle goes here</h4></a>
-                          <h6>$16.75</h6>
-                          <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                          <a href="#"><h4>{{ $allproduct->product_name }}</h4></a>
+                          <h6> &#8358; {{ number_format($allproduct->price) }}</h6>
+                          <p>{{ $allproduct->description }}</p>
                           <ul class="stars">
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
@@ -69,7 +69,7 @@
                         </div>
                       </div>
                     </div>
-                    @endif
+                    {{-- @endif --}}
                     
                     @endforeach
                     
@@ -78,13 +78,14 @@
             </div>
           </div>
           <div class="col-md-12">
-            <ul class="pages">
+            {{-- <ul class="pages">
               <li><a href="#">1</a></li>
               <li class="active"><a href="#">2</a></li>
               <li><a href="#">3</a></li>
               <li><a href="#">4</a></li>
               <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-            </ul>
+            </ul> --}}
+            {{ $allproducts->links() }}
           </div>
         </div>
       </div>

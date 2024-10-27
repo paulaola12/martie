@@ -8,9 +8,9 @@ use App\Http\Controllers\ProfileController;
 // Route::prefix('product')->group(function(){
 
 // })
-// Route::get('/', function () {
-//     return view('product.index');  
-// });
+Route::get('/show', function () {
+    return view('product.productpage');  
+});
 
 // Route::get('/', [allproductsController::class, 'index']);
 
